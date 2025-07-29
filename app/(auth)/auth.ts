@@ -1,6 +1,7 @@
 import { compare } from 'bcrypt-ts';
 import NextAuth, { type DefaultSession } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import GitHubProvider from "next-auth/providers/github";
 import { createGuestUser, getUser } from '@/lib/db/queries';
 import { authConfig } from './auth.config';
 import { DUMMY_PASSWORD } from '@/lib/constants';
@@ -38,6 +39,10 @@ export const {
 } = NextAuth({
   ...authConfig,
   providers: [
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET
+    }),
     Credentials({
       credentials: {},
       async authorize({ email, password }: any) {
@@ -81,6 +86,8 @@ export const {
       return token;
     },
     async session({ session, token }) {
+      console.log("session in callback", session);
+      console.log("token in callback", token);
       if (session.user) {
         session.user.id = token.id;
         session.user.type = token.type;

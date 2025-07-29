@@ -2,7 +2,7 @@
 
 import { startTransition, useMemo, useOptimistic, useState } from 'react';
 
-import { saveChatModelAsCookie } from '@/app/(chat)/actions';
+import { saveChatModelAsCookie } from '@/app/dashboard/actions';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -30,6 +30,9 @@ export function ModelSelector({
     useOptimistic(selectedModelId);
 
   const userType = session.user.type;
+  console.log("session", session);
+  console.log("userType", userType);
+  console.log("entitlementsByUserType", entitlementsByUserType);
   const { availableChatModelIds } = entitlementsByUserType[userType];
 
   const availableChatModels = chatModels.filter((chatModel) =>

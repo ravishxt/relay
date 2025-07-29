@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  db:
+    image: docker.io/supabase/postgres:14.1.0
+    ports:
+      - "5432:5432"
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
