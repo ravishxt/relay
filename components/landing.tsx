@@ -20,6 +20,7 @@ import {
   Github,
   Linkedin,
 } from 'lucide-react';
+import { signIn } from 'next-auth/react';
 
 function Hero() {
   return (
@@ -38,6 +39,7 @@ function Hero() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
+              onClick={() => signIn('github')}
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 transform hover:scale-105 transition-all group"
             >

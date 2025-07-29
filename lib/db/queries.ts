@@ -17,6 +17,7 @@ import postgres from 'postgres';
 
 import {
   user,
+  plan,
   chat,
   type User,
   document,
@@ -42,6 +43,31 @@ import { ChatSDKError } from '../errors';
 const client = postgres(process.env.POSTGRES_URL!);
 const db = drizzle(client);
 
+// Ensure a plan with given name exists, otherwise create it with provided quota (usage units)
+export async function ensurePlan(name: string, quota: number) {
+  // Try fetch existing plan
+  const [existing] = await db.select().from(plan).where(eq(plan.name, name)).limit(1);
+  if (existing) return existing;
+  const [created] = await db
+    .insert(plan)
+    .values({ name, quota })
+    .returning();
+  return created;
+}
+
+// Upsert an OAuth / social user by email; returns user row
+export async function upsertOAuthUser(email: string) {
+  const users = await getUser(email);
+  if (users.length > 0) return users[0];
+  const { id: planId, quota } = await ensurePlan('free', 100);
+  const usageRemaining = quota;
+  const [created] = await db
+    .insert(user)
+    .values({ email, planId, usageRemaining, type: 'regular' })
+    .returning();
+  return created;
+}
+
 export async function getUser(email: string): Promise<Array<User>> {
   try {
     return await db.select().from(user).where(eq(user.email, email));
@@ -54,21 +80,26 @@ export async function getUser(email: string): Promise<Array<User>> {
 }
 
 export async function createUser(email: string, password: string) {
+  // Regular sign-up gets the 'free' plan by default
+  const { id: planId, quota } = await ensurePlan('free', 100);
+  const usageRemaining = quota;
   const hashedPassword = generateHashedPassword(password);
 
   try {
-    return await db.insert(user).values({ email, password: hashedPassword });
+    return await db.insert(user).values({ email, password: hashedPassword, planId, usageRemaining });
   } catch (error) {
     throw new ChatSDKError('bad_request:database', 'Failed to create user');
   }
 }
 
 export async function createGuestUser() {
+  const { id: planId, quota } = await ensurePlan('guest', 20);
+  const usageRemaining = quota;
   const email = `guest-${Date.now()}`;
   const password = generateHashedPassword(generateUUID());
 
   try {
-    return await db.insert(user).values({ email, password }).returning({
+    return await db.insert(user).values({ email, password, planId, usageRemaining }).returning({
       id: user.id,
       email: user.email,
     });

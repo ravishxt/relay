@@ -3,7 +3,7 @@
 import { ChevronUp } from 'lucide-react';
 import Image from 'next/image';
 import type { User } from 'next-auth';
-import { signOut, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import { useTheme } from 'next-themes';
 
 import {
@@ -74,7 +74,9 @@ export function SidebarUserNav({ user }: { user: User }) {
             <DropdownMenuItem
               data-testid="user-nav-item-theme"
               className="cursor-pointer"
-              onSelect={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+              onSelect={() =>
+                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+              }
             >
               {`Toggle ${resolvedTheme === 'light' ? 'dark' : 'light'} mode`}
             </DropdownMenuItem>
@@ -95,7 +97,8 @@ export function SidebarUserNav({ user }: { user: User }) {
                   }
 
                   if (isGuest) {
-                    router.push('/login');
+                    signIn('github');
+                    // router.push('/login');
                   } else {
                     signOut({
                       redirectTo: '/',

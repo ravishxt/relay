@@ -49,9 +49,9 @@ export default function Navbar() {
             >
               Sign In
             </Button>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+            {/* <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
               Get Early Access
-            </Button>
+            </Button> */}
           </div>
 
           {/* Mobile menu */}

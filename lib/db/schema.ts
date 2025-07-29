@@ -9,13 +9,26 @@ import {
   primaryKey,
   foreignKey,
   boolean,
+  integer,
 } from 'drizzle-orm/pg-core';
+
+// Plan table to manage subscription tiers
+export const plan = pgTable('Plan', {
+  id: uuid('id').primaryKey().notNull().defaultRandom(),
+  name: varchar('name', { length: 32 }).notNull(), // e.g. guest, free, starter, pro
+  quota: integer('quota').notNull(), // allowed usage units per billing period
+});
+
+export type Plan = InferSelectModel<typeof plan>;
 
 export const user = pgTable('User', {
   id: uuid('id').primaryKey().notNull().defaultRandom(),
   email: varchar('email', { length: 64 }).notNull(),
   password: varchar('password', { length: 64 }),
   type: varchar('type', { enum: ['guest', 'regular'] }).notNull().default('guest'),
+  planId: uuid('planId')
+    .references(() => plan.id),
+  usageRemaining: integer('usageRemaining').notNull().default(0),
 });
 
 export type User = InferSelectModel<typeof user>;
