@@ -74,10 +74,14 @@ export default function Navbar() {
                   </a>
                 ))}
                 <div className="pt-4 border-t space-y-2">
-                  <Button variant="ghost" className="w-full justify-start">
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start"
+                    onClick={() => signIn('github')}
+                  >
                     Sign In
                   </Button>
-                  <Button className="w-full">Get Early Access</Button>
+                  {/* <Button className="w-full">Get Early Access</Button> */}
                 </div>
               </div>
             </SheetContent>
