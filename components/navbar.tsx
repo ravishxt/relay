@@ -21,7 +21,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-2">
-            <Code className="h-8 w-8 text-primary" />
+            <Code className="size-8 text-primary" />
             <span className="text-xl font-bold text-gray-900 dark:text-white">
               Monarch
             </span>
@@ -58,7 +58,7 @@ export default function Navbar() {
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
+                <Menu className="size-6" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px]">

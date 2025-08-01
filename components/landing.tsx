@@ -41,17 +41,17 @@ function Hero() {
             <Button
               onClick={() => signIn('github')}
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 transform hover:scale-105 transition-all group"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 transition-all group"
             >
               Start Building Today
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="size-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
             >
-              <Play className="w-4 h-4 mr-2" />
+              <Play className="size-4 mr-2" />
               Watch Demo
             </Button>
           </div>
@@ -63,9 +63,9 @@ function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-500/20 rounded-2xl blur-3xl opacity-30" />
             <div className="relative bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
               <div className="flex items-center space-x-2 px-6 py-4 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-                <div className="w-3 h-3 bg-red-500 rounded-full" />
-                <div className="w-3 h-3 bg-yellow-500 rounded-full" />
-                <div className="w-3 h-3 bg-green-500 rounded-full" />
+                <div className="size-3 bg-red-500 rounded-full" />
+                <div className="size-3 bg-yellow-500 rounded-full" />
+                <div className="size-3 bg-green-500 rounded-full" />
                 <span className="text-sm text-gray-500 dark:text-gray-400 ml-4">
                   Monarch Agent Dashboard
                 </span>
@@ -79,7 +79,7 @@ function Hero() {
                     <div className="space-y-3">
                       <div className="flex items-center justify-between p-3 bg-green-50 dark:bg-green-950/20 rounded-lg border border-green-200 dark:border-green-800">
                         <div className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-green-500 rounded-full" />
+                          <div className="size-2 bg-green-500 rounded-full" />
                           <span className="text-sm font-medium text-gray-900 dark:text-white">
                             Claude 3.5
                           </span>
@@ -90,7 +90,7 @@ function Hero() {
                       </div>
                       <div className="flex items-center justify-between p-3 bg-blue-50 dark:bg-blue-950/20 rounded-lg border border-blue-200 dark:border-blue-800">
                         <div className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                          <div className="size-2 bg-blue-500 rounded-full" />
                           <span className="text-sm font-medium text-gray-900 dark:text-white">
                             Gemini Pro
                           </span>
@@ -189,8 +189,8 @@ function Features() {
               key={feature.title}
               className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 scroll-animate border border-gray-200 dark:border-gray-700"
             >
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                <feature.icon className="w-6 h-6 text-primary" />
+              <div className="size-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                <feature.icon className="size-6 text-primary" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 {feature.title}
@@ -226,7 +226,7 @@ function CodeDemo() {
             </h3>
             <div className="space-y-4 mb-8">
               <div className="flex items-start space-x-3">
-                <div className="w-2 h-2 bg-green-500 rounded-full mt-2" />
+                <div className="size-2 bg-green-500 rounded-full mt-2" />
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white">
                     Real-time Monitoring
@@ -237,7 +237,7 @@ function CodeDemo() {
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2" />
+                <div className="size-2 bg-blue-500 rounded-full mt-2" />
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white">
                     Visual Workflows
@@ -248,7 +248,7 @@ function CodeDemo() {
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="w-2 h-2 bg-purple-500 rounded-full mt-2" />
+                <div className="size-2 bg-purple-500 rounded-full mt-2" />
                 <div>
                   <h4 className="font-semibold text-gray-900 dark:text-white">
                     Team Collaboration
@@ -260,7 +260,7 @@ function CodeDemo() {
               </div>
             </div>
             <Button size="lg" className="group">
-              <Play className="w-4 h-4 mr-2" />
+              <Play className="size-4 mr-2" />
               Try Interactive Demo
             </Button>
           </div>
@@ -268,9 +268,9 @@ function CodeDemo() {
           <div className="scroll-animate">
             <div className="bg-gray-900 dark:bg-black rounded-2xl overflow-hidden shadow-2xl">
               <div className="flex items-center space-x-2 px-6 py-4 bg-gray-800 dark:bg-gray-900">
-                <div className="w-3 h-3 bg-red-500 rounded-full" />
-                <div className="w-3 h-3 bg-yellow-500 rounded-full" />
-                <div className="w-3 h-3 bg-green-500 rounded-full" />
+                <div className="size-3 bg-red-500 rounded-full" />
+                <div className="size-3 bg-yellow-500 rounded-full" />
+                <div className="size-3 bg-green-500 rounded-full" />
                 <span className="text-sm text-gray-400 ml-4">
                   Monarch Agent Console
                 </span>
@@ -293,7 +293,7 @@ function CodeDemo() {
                     → Generating pull request...
                   </div>
                   <div className="text-green-400">
-                    ✓ PR #142 created: "Optimize database queries"
+                    ✓ PR #142 created: &quot;Optimize database queries&quot;
                   </div>
                   <div className="text-gray-400">
                     → Running tests in sandbox...
@@ -377,9 +377,9 @@ function FAQ() {
                   {faq.question}
                 </span>
                 {openIndex === index ? (
-                  <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                  <ChevronUp className="size-5 text-gray-500 shrink-0" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                  <ChevronDown className="size-5 text-gray-500 shrink-0" />
                 )}
               </button>
 
@@ -466,7 +466,7 @@ function Comparison() {
             {comparisons.map((item, index) => (
               <div
                 key={item.feature}
-                className="grid grid-cols-3 items-center py-6 px-6 border-b border-gray-100 dark:border-gray-700 last:border-b-0"
+                className="grid grid-cols-3 items-center p-6 border-b border-gray-100 dark:border-gray-700 last:border-b-0"
               >
                 <div>
                   <div className="font-medium text-gray-900 dark:text-white mb-1">
@@ -479,27 +479,27 @@ function Comparison() {
                 <div className="text-center">
                   {item.reverse ? (
                     !item.Monarch ? (
-                      <Check className="w-6 h-6 text-green-500 mx-auto" />
+                      <Check className="size-6 text-green-500 mx-auto" />
                     ) : (
-                      <X className="w-6 h-6 text-red-500 mx-auto" />
+                      <X className="size-6 text-red-500 mx-auto" />
                     )
                   ) : item.Monarch ? (
-                    <Check className="w-6 h-6 text-green-500 mx-auto" />
+                    <Check className="size-6 text-green-500 mx-auto" />
                   ) : (
-                    <X className="w-6 h-6 text-red-500 mx-auto" />
+                    <X className="size-6 text-red-500 mx-auto" />
                   )}
                 </div>
                 <div className="text-center">
                   {item.reverse ? (
                     !item.traditional ? (
-                      <Check className="w-6 h-6 text-green-500 mx-auto" />
+                      <Check className="size-6 text-green-500 mx-auto" />
                     ) : (
-                      <X className="w-6 h-6 text-red-500 mx-auto" />
+                      <X className="size-6 text-red-500 mx-auto" />
                     )
                   ) : item.traditional ? (
-                    <Check className="w-6 h-6 text-green-500 mx-auto" />
+                    <Check className="size-6 text-green-500 mx-auto" />
                   ) : (
-                    <X className="w-6 h-6 text-red-500 mx-auto" />
+                    <X className="size-6 text-red-500 mx-auto" />
                   )}
                 </div>
               </div>
@@ -561,17 +561,17 @@ function Testimonials() {
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={_}
-                    className="w-5 h-5 text-yellow-400 fill-current"
+                    className="size-5 text-yellow-400 fill-current"
                   />
                 ))}
               </div>
 
               <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
-                "{testimonial.content}"
+                &quot;{testimonial.content}&quot;
               </p>
 
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                <div className="size-12 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
                   <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">
                     {testimonial.name
                       .split(' ')
@@ -670,7 +670,7 @@ function Pricing() {
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <span className="bg-primary text-white px-4 py-2 rounded-full text-sm font-medium">
                     Most Popular
                   </span>
@@ -697,7 +697,7 @@ function Pricing() {
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-start space-x-3">
-                    <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                    <Check className="size-5 text-green-500 mt-0.5 shrink-0" />
                     <span className="text-gray-600 dark:text-gray-300">
                       {feature}
                     </span>
@@ -735,7 +735,7 @@ function CTA() {
       <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
         <div className="scroll-animate">
           <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="size-4" />
             <span>Early Access Available</span>
           </div>
 
@@ -773,21 +773,21 @@ function CTA() {
               disabled={signupMutation.isPending}
             >
               {signupMutation.isPending ? "Signing up..." : "Get Early Access"}
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="size-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </form> */}
 
           <div className="flex items-center justify-center space-x-8 text-sm text-gray-500 dark:text-gray-400">
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full" />
+              <div className="size-2 bg-green-500 rounded-full" />
               <span>14-day free trial</span>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-blue-500 rounded-full" />
+              <div className="size-2 bg-blue-500 rounded-full" />
               <span>No credit card required</span>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-purple-500 rounded-full" />
+              <div className="size-2 bg-purple-500 rounded-full" />
               <span>Cancel anytime</span>
             </div>
           </div>
@@ -837,7 +837,7 @@ function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Code className="h-8 w-8 text-primary" />
+              <Code className="size-8 text-primary" />
               <span className="text-xl font-bold">Monarch</span>
             </div>
             <p className="text-gray-400 mb-4">
@@ -852,7 +852,7 @@ function Footer() {
                   className="text-gray-400 hover:text-white transition-colors"
                   aria-label={social.label}
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon className="size-5" />
                 </a>
               ))}
             </div>
